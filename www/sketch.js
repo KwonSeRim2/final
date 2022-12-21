@@ -15,6 +15,9 @@ var playing9 = false
 
 var slider;
 
+let r, g, b;
+
+
 function setup() {
 
   createCanvas(640, 480);
@@ -36,8 +39,6 @@ function setup() {
    button[i].position(100+40*i,100);
    button[i].size(40,40);
    button[i].style('font-size', '30px');
-   button[i].style('font-size', '30px');
-
    
   }
 
@@ -52,10 +53,14 @@ function setup() {
   button[8].mousePressed(toggle8);
   button[9].mousePressed(toggle9);
 
- 
+  r = random(50, 255);
+  g = random(0,200);
+  b = random(50,255);
 }
 
  function draw() {
+   background(r,g,b);
+
    for (let i = 0; i < 10; i++) {
    wave[i].amp(slider.value()/10);
    }
@@ -171,6 +176,13 @@ function toggle9(){
     wave[9].stop();
     playing9 = false
   }
+}
+
+ function deviceMoved(){
+  r = map(accelerationX, -90, 90, 100, 175);
+  g = map(accelerationY, -90, 90, 100, 200);
+  b = map(accelerationZ, -90, 90, 100, 200);
+
 }
 
 
