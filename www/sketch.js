@@ -15,14 +15,15 @@ var playing9 = false
 
 var slider;
 
-
 function setup() {
 
   createCanvas(640, 480);
+
   //createCanvas(displaywidth, displayheight)
 
  
   slider = createSlider(0,10,5);
+  slider.position(100, 150);
   
   //wave.start();
  
@@ -34,6 +35,8 @@ function setup() {
    button[i] = createButton(String.fromCharCode(65+i%7));
    button[i].position(100+40*i,100);
    button[i].size(40,40);
+   button[i].style('font-size', '30px');
+   button[i].style('font-size', '30px');
 
    
   }
@@ -49,7 +52,7 @@ function setup() {
   button[8].mousePressed(toggle8);
   button[9].mousePressed(toggle9);
 
-
+ 
 }
 
  function draw() {
@@ -96,7 +99,6 @@ function toggle3(){
   if(!playing3){
     wave[3].start();
     wave[3].freq(293.6648);
-    wave[3].amp(0.5, 1);
     playing3 = true;
   } 
   else {
